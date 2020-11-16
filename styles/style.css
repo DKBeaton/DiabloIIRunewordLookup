@@ -22,7 +22,7 @@ html {
 body {
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/bg2.jpg) repeat top;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/bg.jpg) repeat top;
   background-size: auto 100%;
   background-attachment: fixed;
 }
