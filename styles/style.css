@@ -20,18 +20,18 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100vh;
-  background-color: #000;
-  background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/bg2.jpg) repeat top;
+  overflow: hidden;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/bg2.jpg) repeat top;
   background-size: auto 100%;
   background-attachment: fixed;
 }
 
-.bg {
+.content {
   height: 100vh;
+  max-width: 1280px;
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
 }
 
 .top-container {
@@ -40,6 +40,15 @@ body {
   align-items: center;
   max-width: 100%;
   width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; 
+  width: 100%;
+  overflow: auto;
 }
 
 .hl {
