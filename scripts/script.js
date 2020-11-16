@@ -42,7 +42,7 @@ function displayMatches(e) {
     newElement.innerHTML = `
     <div class="runeword-name">${itemName}</div>
     <div class="runeword-type">${item.type}</div>
-    <div class="runeword-runes">${item.runes}</div>
+    <div class="runeword-runes">${item.runes.join(', ')}</div>
     <div class="runeword-description">${item.effects}</div>
     `;
     document.querySelector(".runewords-container").appendChild(newElement);
