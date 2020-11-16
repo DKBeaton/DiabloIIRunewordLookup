@@ -1,0 +1,135 @@
+/* Global */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --main-font: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/images/bg2.jpg) repeat top;
+  background-size: auto 100%;
+  background-attachment: fixed;
+}
+
+.bg {
+  height: 100vh;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.hl {
+  background: #ffc004;
+  color: #000;
+}
+
+/* Search */
+
+.seach-container {
+  position: relative;
+  margin-top: 4rem;
+}
+
+.runeword-search {
+  background: #272727;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.0rem;
+  text-align: left;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  width: 250px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.search-icon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:#fff;
+}
+input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+  color:#fff;
+}
+input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+  color:#fff;
+}
+input[type="text"]:-moz-placeholder { /* Firefox 18- */
+  color:#fff;
+}
+
+/* Runeword */
+
+.runewords-container {
+  overflow: hidden;
+}
+
+.runeword-container {
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0,0,0,0.9);
+  border-radius: 5px;
+  transform: translateY(-400px);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.runeword-name {
+  color: #928068;
+  padding: 1rem;
+  flex: 1;
+}
+
+.runeword-type, .runeword-runes {
+  color: #fff;
+  padding: 1rem;
+  flex: 1;
+}
+
+.runeword-description {
+  color: #4850B8;
+  padding: 1rem;
+  text-align: center;
+  flex: 5;
+}
+
+
+
