@@ -41,7 +41,7 @@ function displayMatches(e) {
 
     newElement.innerHTML = `
     <div class="runeword-name">${itemName}</div>
-    <div class="runeword-type">${item.type}</div>
+    <div class="runeword-type">${item.type.join(', ')}</div>
     <div class="runeword-runes">${item.runes.join(', ')}</div>
     <div class="runeword-description">${item.effects}</div>
     `;
