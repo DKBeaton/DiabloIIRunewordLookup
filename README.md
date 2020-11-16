@@ -1,4 +1,4 @@
-# DiabloIIRunewordLookup
+# Diablo II Runeword Lookup page
 
 Diablo II runewords lookup page
 
