@@ -56,6 +56,10 @@ body {
   color: #000;
 }
 
+.stat {
+  color: #a8a8ff;
+}
+
 /* Search */
 
 .seach-container {

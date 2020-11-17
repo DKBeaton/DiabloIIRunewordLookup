@@ -39,17 +39,32 @@ function displayMatches(e) {
     const regex = new RegExp(this.value, 'gi');
     const itemName = item.name.replace(regex, match => `<span class="hl">${match}</span>`);
 
+    //parseItemDescription(item.effects);
+
     newElement.innerHTML = `
     <div class="runeword-name">${itemName}</div>
     <div class="runeword-type">${item.socket} Socket ${item.type.join(', ')}</div>
     <div class="runeword-runes">${item.runes.join(' + ')}</div>
-    <div class="runeword-description">${item.effects}</div>
+    <div class="runeword-description">${parseItemDescription(item.effects)}</div>
     `;
     document.querySelector(".runewords-container").appendChild(newElement);
     setTimeout(function() {
       this.classList.add('fade-in');
     }.bind(newElement), 100)
   })
+}
+
+// Parse an items 'varies' description stat
+function parseItemDescription(item) {
+  const itemArray = item.split('<br/>');
+  return itemArray.map(i => {
+    if (i.includes('varies')) {
+      const regex = new RegExp(/[+\d-%]+/, 'g');
+      return i.replace(regex, match => `<span class="stat">${match}</span>`);
+    } else {
+      return i;
+    }
+  }).join('<br/>');
 }
 
 // Check if string is empty
