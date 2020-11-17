@@ -56,12 +56,9 @@ function displayMatches(e) {
 function parseItemDescription(item) {
   const itemArray = item.split('<br/>');
   return itemArray.map(i => {
-    if (i.includes('varies')) {
-      const regex = new RegExp(/[+\d-%]+/, 'g');
-      return i.replace(regex, match => `<span class="stat">${match}</span>`);
-    } else {
-      return i;
-    }
+    if (!i.includes('varies')) return i;
+    const regex = new RegExp(/[+\d-%]+/, 'g');
+    return i.replace(regex, match => `<span class="stat">${match}</span>`);
   }).join('<br/>');
 }
 
