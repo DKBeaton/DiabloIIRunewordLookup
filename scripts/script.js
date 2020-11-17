@@ -39,8 +39,6 @@ function displayMatches(e) {
     const regex = new RegExp(this.value, 'gi');
     const itemName = item.name.replace(regex, match => `<span class="hl">${match}</span>`);
 
-    //parseItemDescription(item.effects);
-
     newElement.innerHTML = `
     <div class="runeword-name">${itemName}</div>
     <div class="runeword-type">${item.socket} Socket ${item.type.join(', ')}</div>
