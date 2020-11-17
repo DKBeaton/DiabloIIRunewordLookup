@@ -21,7 +21,6 @@ function findMatches(word, runewordData) {
 function displayMatches(e) {
   // Make sure input is not empty
   if (isEmpty(e.target.value)) {
-    // Don't contiune but remove all DOM elements
     removeDOM('.runeword-container', 'fade-in', 200);
     return;
   }
@@ -32,24 +31,7 @@ function displayMatches(e) {
   removeDOM('.runeword-container', 'fade-in', 200);
 
   // Add new DOM elements
-  matchArray.forEach(item => {
-    var newElement = document.createElement('div');
-    newElement.classList.add('runeword-container');
-
-    const regex = new RegExp(this.value, 'gi');
-    const itemName = item.name.replace(regex, match => `<span class="hl">${match}</span>`);
-
-    newElement.innerHTML = `
-    <div class="runeword-name">${itemName}</div>
-    <div class="runeword-type">${item.socket} Socket ${item.type.join(', ')}</div>
-    <div class="runeword-runes">${item.runes.join(' + ')}</div>
-    <div class="runeword-description">${parseItemDescription(item.effects)}</div>
-    `;
-    document.querySelector(".runewords-container").appendChild(newElement);
-    setTimeout(function() {
-      this.classList.add('fade-in');
-    }.bind(newElement), 100)
-  })
+  addDOM(matchArray);
 }
 
 // Parse an items 'varies' description stat
@@ -77,9 +59,34 @@ function removeDOM(element, className, timeOut) {
   });
 }
 
-function addDOM() {
+// Add DOM element
+function addDOM(itemArray) {
+  itemArray.forEach(item => {
+    // Create element
+    var newElement = document.createElement('div');
+    newElement.classList.add('runeword-container');
 
+    // REGEX item name for searched word highlight
+    const regex = new RegExp(this.value, 'gi');
+    const itemName = item.name.replace(regex, match => `<span class="hl">${match}</span>`);
+
+    // Add inner HTML data
+    newElement.innerHTML = `
+    <div class="runeword-name">${itemName}</div>
+    <div class="runeword-type">${item.socket} Socket ${item.type.join(', ')}</div>
+    <div class="runeword-runes">${item.runes.join(' + ')}</div>
+    <div class="runeword-description">${parseItemDescription(item.effects)}</div>
+    `;
+    document.querySelector(".runewords-container").appendChild(newElement);
+
+    // Add fade in effect
+    setTimeout(function() {
+      this.classList.add('fade-in');
+    }.bind(newElement), 100)
+  })
 }
+
+
 
 // ### Four different ways to filter data ###
 
