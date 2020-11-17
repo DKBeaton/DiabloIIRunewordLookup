@@ -31,7 +31,7 @@ function displayMatches(e) {
   removeDOM('.runeword-container', 'fade-in', 200);
 
   // Add new DOM elements
-  addDOM(matchArray);
+  addDOM(matchArray, this.value);
 }
 
 // Parse an items 'varies' description stat
@@ -60,14 +60,14 @@ function removeDOM(element, className, timeOut) {
 }
 
 // Add DOM element
-function addDOM(itemArray) {
+function addDOM(itemArray, matchWord) {
   itemArray.forEach(item => {
     // Create element
     var newElement = document.createElement('div');
     newElement.classList.add('runeword-container');
 
     // REGEX item name for searched word highlight
-    const regex = new RegExp(this.value, 'gi');
+    const regex = new RegExp(matchWord, 'gi');
     const itemName = item.name.replace(regex, match => `<span class="hl">${match}</span>`);
 
     // Add inner HTML data
