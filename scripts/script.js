@@ -86,35 +86,3 @@ function addDOM(itemArray, matchWord) {
   })
 }
 
-
-
-// ### Four different ways to filter data ###
-
-// function findMatches(word, provinces) {
-//   return provinces
-//     .filter(province => province.cities.some(city => city.toUpperCase().includes(word.toUpperCase())))
-//     .map(province => {
-//       return Object.assign({}, province, {cities : province.cities.filter(city => city.toUpperCase().includes(word.toUpperCase()))})
-//     });
-// }
-
-// function findMatches(word, provinces) {
-//   return provinces
-//     .filter(province => province.cities.some(city => city.toUpperCase().includes(word.toUpperCase())))
-//     .map(province => {
-//       let element = Object.assign({}, province);
-//       return element.cities.filter(city => city.toUpperCase().includes(word.toUpperCase()));
-//     });
-// }
-
-// function findMatches(word, provinces) {
-//   return provinces.map(province => {
-//     return {...province, cities: province.cities.filter(city => city.toUpperCase().includes(word.toUpperCase()))}
-//   });
-// }
-
-// function findMatches(word, provinces) {
-//   return provinces.filter(province => province.cities.some(city => city.toUpperCase().includes(word.toUpperCase())));
-// }
-
-
