@@ -1,8 +1,8 @@
 // Global variables
-
 const runewordData = [];
 const runewordSearch = document.querySelector('.runeword-search');
 const container = document.querySelector('.runewords-container');
+let refreshTimeout;
 
 // Get runeword data
 fetch('./runewords.json')
@@ -10,7 +10,12 @@ fetch('./runewords.json')
 .then(data => runewordData.push(...data));
 
 // Event listeners
-runewordSearch.addEventListener('keyup', displayMatches);
+runewordSearch.addEventListener('keyup', function(e) {
+  clearTimeout(refreshTimeout);
+  refreshTimeout = setTimeout(function() {
+    displayMatches(e);
+  }, 500);
+});
 
 // Filter json data to find match
 function findMatches(word, runewordData) {
@@ -19,19 +24,21 @@ function findMatches(word, runewordData) {
 
 // Display match data
 function displayMatches(e) {
+  const value = e.target.value;
+  
   // Make sure input is not empty
-  if (isEmpty(e.target.value)) {
+  if (isEmpty(value)) {
     removeDOM('.runeword-container', 'fade-in', 200);
     return;
   }
 
-  const matchArray = findMatches(this.value, runewordData);
+  const matchArray = findMatches(value, runewordData);
 
   // Check for exisiting DOM elements and remove them
   removeDOM('.runeword-container', 'fade-in', 200);
 
   // Add new DOM elements
-  addDOM(matchArray, this.value);
+  addDOM(matchArray, value);
 }
 
 // Parse an items 'varies' description stat
@@ -85,4 +92,3 @@ function addDOM(itemArray, matchWord) {
     }.bind(newElement), 100)
   })
 }
-
